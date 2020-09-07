@@ -94,6 +94,9 @@ class SongController extends Controller
      */
     public function destroy(Song $song)
     {
-        //
+        $this->song->deleteSong($song->id);
+
+        Session::flash('message', 'Deleted succesfully!');
+        return redirect('/song');
     }
 }
